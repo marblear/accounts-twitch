@@ -7,13 +7,15 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('3.0');
+  api.versionsFrom('3.0.1');
 
   api.use('typescript', ['client', 'server']);
   api.use('accounts-base', ['client', 'server']);
   api.imply('accounts-base');
   api.use('accounts-oauth', ['client', 'server']);
   api.imply('accounts-oauth');
+  api.use('marblear:twitch-oauth');
+  api.imply('marblear:twitch-oauth');
 
   api.use('oauth', ['client', 'server']);
   api.use('oauth2', ['client', 'server']);
