@@ -7,15 +7,8 @@ const loginWithTwitch = async (options, callback) => {
     callback = options;
     options = null;
   }
-
-  const credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(
-    callback
-  );
-  await TwitchOAuth.requestCredential(
-    options,
-    credentialRequestCompleteCallback,
-    callback
-  );
+  const credentialRequestCompleteHandler = Accounts.oauth.credentialRequestCompleteHandler(callback);
+  await TwitchOAuth.requestCredential(options, credentialRequestCompleteHandler);
 };
 
 Accounts.registerClientLoginFunction('twitch', loginWithTwitch);
