@@ -1,7 +1,8 @@
 import { TwitchOAuth } from 'meteor/marblear:twitch-oauth';
-import { Accounts } from './types';
+import TwitchAccounts from './TwitchAccounts';
+import { Accounts, CredentialRequestCompleteCallback, LoginOptions } from './types';
 
-const loginWithTwitch = async (options, callback) => {
+const loginWithTwitch = async (options: LoginOptions, callback: CredentialRequestCompleteCallback) => {
   // support a callback without options
   if (!callback && typeof options === 'function') {
     callback = options;
@@ -15,3 +16,5 @@ Accounts.registerClientLoginFunction('twitch', loginWithTwitch);
 
 // @ts-expect-error Add global function to Meteor
 Meteor.loginWithTwitch = (...args: unknown[]) => Accounts.applyLoginFunction('twitch', args);
+
+TwitchAccounts.requestCredential = TwitchOAuth.requestCredential;

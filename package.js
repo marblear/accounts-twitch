@@ -23,9 +23,10 @@ Package.onUse(function(api) {
   api.use('random', 'client');
   api.use('service-configuration', ['client', 'server']);
 
+  api.addFiles('TwitchAccounts.ts');
   api.addFiles('accounts-twitch.ts', ['client', 'server']);
   api.addFiles('accounts-twitch.client.ts', 'client');
   api.addFiles('accounts-twitch.server.ts', 'server');
 
-  api.export('AccountsTwitch');
+  api.export('TwitchAccounts');
 });
