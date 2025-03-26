@@ -2,6 +2,7 @@ export type LoginStyle = 'popup' | 'redirect';
 
 export interface LoginOptions {
   loginStyle: LoginStyle;
+  redirectUrl?: string,
 }
 
 export type CredentialRequestCompleteCallback = (credentialTokenOrError: CredentialTokenOrError) => void;
